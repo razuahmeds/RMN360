@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMN 360</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-tshirt"></i> RAZU AHMED
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- <h1>Welcome to StyleHub</h1>
+            <p>Discover Premium Fashion for Every Occasion</p> -->
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('shirts')">
+                    <img src="https://img.joomcdn.net/2bd65c7d3e31eded4fb0297f2d9783f8f97f5d4d_original.jpeg" alt="Shirts">
+                    <h3>Shirts & T-Shirts</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('pants')">
+                    <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/8881403/2024/6/7/0416848e-a95a-4015-b01f-eb0814ed05a81717734143808-DENNISON-Men-Grey-Smart-Tapered-Fit-Casual-Trousers-93617177-1.jpg" alt="Pants">
+                    <h3>Pants & Trousers</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('sarees')">
+                    <img src="https://images.hindustantimes.com/img/2024/08/06/550x309/d16dc052-b40a-4b64-b9c1-f9601f1fcfe5_1722852038299_1722911960491.jpg" alt="Sarees">
+                    <h3>Long Sarees</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('lehengas')">
+                    <img src="https://www.atun.in/wp-content/uploads/2022/09/LEHENGA-10.jpg" alt="Lehengas">
+                    <h3>Three-Piece Lehengas</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-tab" onclick="filterProducts('shirts')">Shirts</button>
+                <button class="filter-tab" onclick="filterProducts('pants')">Pants</button>
+                <button class="filter-tab" onclick="filterProducts('sarees')">Sarees</button>
+                <button class="filter-tab" onclick="filterProducts('lehengas')">Lehengas</button>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Store Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1212 Dhaka</p>
+                    <p><i class="fas fa-phone"></i> +8801744298814</p>
+                    <p><i class="fas fa-envelope"></i> rukunuzzama.razu@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-8PM, Sun: 10AM-6PM</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Customer Service</h3>
+                    <p><i class="fas fa-headset"></i> 24/7 Customer Support</p>
+                    <p><i class="fas fa-truck"></i> Free Shipping on Orders $50+</p>
+                    <p><i class="fas fa-undo"></i> 30-Day Return Policy</p>
+                    <p><i class="fas fa-shield-alt"></i> Secure Payment Processing</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Follow Us</h3>
+                    <a href="https://www.facebook.com/razu.ahmed.603115"><p><i class="fab fa-facebook"></i> Facebook</p></a>
+                    <a href="https://www.instagram.com/razu_3335/"><p><i class="fab fa-instagram"></i> Instagram</p></a>
+                    <a href="https://x.com/RAZUAHMED6682"><p><i class="fab fa-twitter"></i> Twitter</p></a>
+                    <a href="https://www.youtube.com/"><p><i class="fab fa-youtube"></i> YouTube</p></a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" onclick="toggleCart()">&times;</button>
+            </div>
+            <div id="cartItems">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 StyleHub. Premium Fashion Store | &copy; Raju</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
